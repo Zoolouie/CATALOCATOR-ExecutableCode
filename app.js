@@ -42,7 +42,7 @@ app.set('view engine', 'ejs')
  * Will explain in later steps
  */ 
 var index = require('./routes/index')
-var store = require('./routes/store')
+var student = require('./routes/student')
  
  
 /**
@@ -113,7 +113,7 @@ app.use(flash())
  
  
 app.use('/', index)
-app.use('/store', store)
+app.use('/student', student)
 
 var hostName = config.server.host;
 var serverPort = config.server.port;

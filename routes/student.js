@@ -33,13 +33,13 @@ app.get('/', function(req, res, next) {
             if (err) {
                 // Display error message in case an error
                 req.flash('error', err)
-                res.render('store/list', {
-                    title: 'Store listing',
+                res.render('student/list', {
+                    title: 'Student listing',
                     data: ''
                 })
             } else {
                 // render to views/store/list.ejs template file
-                res.render('store/list', {
+                res.render('student/list', {
                     title: 'Login',
                     data: rows.rows
                 })
@@ -76,7 +76,7 @@ app.get('/', function(req, res, next) {
 // Display form to get values for store item for insertion
 app.get('/register', function(req, res, next) {
     // render to views/store/register.ejs
-    res.render('store/register', {
+    res.render('student/register', {
         title: '',
         studi: '',
         firstn: '',
@@ -120,7 +120,7 @@ app.post('/register', function(req, res, next) {
                     if (err) {
                         req.flash('error', err)
                         // render to views/store/register.ejs
-                        res.render('store/register', {
+                        res.render('student/register', {
                             title: '',
                             studi: item.studi,
                             lastn: item.lastn,
@@ -131,7 +131,7 @@ app.post('/register', function(req, res, next) {
                     } else {
                         req.flash('success', 'Data added successfully!')
                         // render to views/store/register.ejs
-                        res.render('store/register', {
+                        res.render('student/register', {
                             title: '',
                             studi: '',
                             lastn: '',
@@ -154,7 +154,7 @@ app.post('/register', function(req, res, next) {
          * because req.param('sname') is deprecated
          */
         // Sending back the entered values for user to verify
-        res.render('store/register', {
+        res.render('student/register', {
             title: '',
             studi: req.body.studi,
             firstn: req.body.lastn,
