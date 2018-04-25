@@ -9,6 +9,8 @@ To give it a shot on your own machines:
 
 2) Command : node app.js
 
+2.1) If the command doesn't work, you might have to run "npm install express"
+
 3) Head over to local host http://localhost:4000
 
 Try creating a profile for yourself. After this is done you should be able to see your 
