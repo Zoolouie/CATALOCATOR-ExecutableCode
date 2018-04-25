@@ -74,9 +74,9 @@ app.get('/', function(req, res, next) {
 
 
 // Display form to get values for store item for insertion
-app.get('/add', function(req, res, next) {
-    // render to views/store/add.ejs
-    res.render('store/add', {
+app.get('/register', function(req, res, next) {
+    // render to views/store/register.ejs
+    res.render('store/register', {
         title: '',
         studi: '',
         firstn: '',
@@ -86,9 +86,9 @@ app.get('/add', function(req, res, next) {
     })
 })
 
-// ADD NEW ITEM POST ACTION -- Used to insert values
+// REGISTER NEW USER -- Used to insert values
 // Notice that we are using post here
-app.post('/add', function(req, res, next) {
+app.post('/register', function(req, res, next) {
     req.assert('studi', 'Student ID is required').notEmpty()
     //Validate sname
     req.assert('lastn', 'Last Name is required').notEmpty()
@@ -119,8 +119,8 @@ app.post('/add', function(req, res, next) {
                 function(err, result) {
                     if (err) {
                         req.flash('error', err)
-                        // render to views/store/add.ejs
-                        res.render('store/add', {
+                        // render to views/store/register.ejs
+                        res.render('store/register', {
                             title: '',
                             studi: item.studi,
                             lastn: item.lastn,
@@ -130,8 +130,8 @@ app.post('/add', function(req, res, next) {
                         })
                     } else {
                         req.flash('success', 'Data added successfully!')
-                        // render to views/store/add.ejs
-                        res.render('store/add', {
+                        // render to views/store/register.ejs
+                        res.render('store/register', {
                             title: '',
                             studi: '',
                             lastn: '',
@@ -154,7 +154,7 @@ app.post('/add', function(req, res, next) {
          * because req.param('sname') is deprecated
          */
         // Sending back the entered values for user to verify
-        res.render('store/add', {
+        res.render('store/register', {
             title: '',
             studi: req.body.studi,
             firstn: req.body.lastn,
