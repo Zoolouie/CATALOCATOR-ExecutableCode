@@ -77,7 +77,7 @@ app.get('/', function(req, res, next) {
 app.get('/add', function(req, res, next) {
     // render to views/store/add.ejs
     res.render('store/add', {
-        title: 'Add New Item',
+        title: '',
         studi: '',
         firstn: '',
         lastn: '',
@@ -121,7 +121,7 @@ app.post('/add', function(req, res, next) {
                         req.flash('error', err)
                         // render to views/store/add.ejs
                         res.render('store/add', {
-                            title: 'Add New Item',
+                            title: '',
                             studi: item.studi,
                             lastn: item.lastn,
                             firstn: item.firstn,
@@ -132,7 +132,7 @@ app.post('/add', function(req, res, next) {
                         req.flash('success', 'Data added successfully!')
                         // render to views/store/add.ejs
                         res.render('store/add', {
-                            title: 'Add New Item',
+                            title: '',
                             studi: '',
                             lastn: '',
                             firstn: '',
@@ -155,7 +155,7 @@ app.post('/add', function(req, res, next) {
          */
         // Sending back the entered values for user to verify
         res.render('store/add', {
-            title: 'Add New Item',
+            title: '',
             studi: req.body.studi,
             firstn: req.body.lastn,
             lastn: req.body.firstn,
