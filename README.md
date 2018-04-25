@@ -49,7 +49,8 @@ The way I see it, here are the main tasks.
 1) Modify the .ejs code to reflect what the front end has created.
 2) Work on the login information. Code as an example can be found in what I've coded for add.ejs and store.js, as well as
 further down in the store.js file. (Specifically, around line 185 - where it has the exception for when nothing is found).
-
+3) Some of the files need to be renamed so they actually make sense. This involves a little bit of legwork in terms
+of finding all instances of a filename - but is probably not too bad in practice.
 
 
 
