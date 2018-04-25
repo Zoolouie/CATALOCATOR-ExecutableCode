@@ -165,6 +165,31 @@ app.post('/register', function(req, res, next) {
     }
 })
 
+app.get('/selection', function(req, res, next) {
+    // render to views/store/selection.ejs
+    res.render('student/selection', {
+        title: '',
+        studi: '',
+        firstn: '',
+        lastn: '',
+        email: '',
+        pass: ''
+    })
+})
+
+
+app.get('/login', function(req, res, next) {
+    // render to views/store/selection.ejs
+    res.render('student/login', {
+        title: '',
+        studi: '',
+        firstn: '',
+        lastn: '',
+        email: '',
+        pass: ''
+    })
+})
+
 
 
 // // SHOW EDIT ITEM FORM - Display form for update
