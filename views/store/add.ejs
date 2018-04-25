@@ -11,38 +11,78 @@ including header content which is common for all pages
 	<p style="color:green"><%- messages.success %></p>
 <% } %>
 
-<form action="/store/add" method="post" name="form1">
-	<table width="25%" border="0">
-		<tr> 
-			<td>Student ID</td>
-			<td><input type="number" name="studi" id="name" value="<%= studi %>" /></td>
-		</tr>
-		<tr> 
-			<td>First Name</td>
-			<td><input type="text" name="firstn" id="name" value="<%= firstn %>" /></td>
-		</tr>
-		<tr> 
-			<td>Last Name</td>
-			<td><input type="text" name="lastn" value="<%= lastn %>" /></td>
-		</tr>
-		<tr> 
-			<td>Email</td>
-			<td><input type="text" name="email" value="<%= email %>" /></td>
-		</tr>
-		<tr> 
-			<td>Password</td>
-			<td><input type="password" name="pass" value="<%= pass %>" /></td>
-		</tr>
-		<tr> 
-			<td></td>
-			<td><input type="submit" name="Submit" value="Add" /></td>
-		</tr>
 
-		</tr>
-	</table>
-</form>
 
-<!--
-including footer content which is common for all pages
--->
-<%- include ../layouts/footer.ejs %>
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   </head>
+  <body>
+  <div id = "paddingt" >
+      <div id="banner">
+          <div id="banner-content">
+          </div>
+      </div>
+
+      <div class="container" style="padding-top: 20px">
+          <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h3 class="panel-title">TA/CA Locator</h3>
+                          <p>Sign up </p>
+                      </div>
+                      <div class="panel-body">
+                         
+
+
+
+                              	  <form action="/store/add" method="post" name="form1">
+                              	
+
+                                  <div class="form-group">
+                                      <input class="form-control" placeholder="E-mail" name="email" type="text" value="<%= email %>">
+                                  </div>
+                                  <div class="form-group">
+                                      <input class="form-control" placeholder="First Name" name="firstn" type="text" value="<%= firstn %>">
+                                  </div>
+                                  <div class="form-group">
+                                      <input class="form-control" placeholder="Last Name" name="lastn" type="text" value="<%= lastn %>">
+                                  </div>
+                                  <div class="form-group">
+                                      <input class="form-control" placeholder="Password" name="pass" type="password" value="<%= pass %>">
+                                  </div>
+                                  <div class="form-group">
+                                      <input class="form-control" placeholder="Student ID" name="studi" type="number" value="<%= studi %>">
+                                  </div>
+                                  	<td><input type="submit" name="Submit" value="Contniue" /></td>
+
+                                  <p><br>Already have an account? <a href="/login">Sign in</a></p>
+                                  
+                                  </form>
+
+
+                           
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 col-md-offset-4">
+                  <p>
+                      The TA/CA locator makes it easy to find help in the Computer Science department at The University of Colorado Boulder. We match your
+                      availability with all of your TA's/CA's schedules so that you will never miss another important office hour. <br> <br>
+                      Once you click continue we will help you personalize your student account. Thank you for signing up!
+                  </p>
+              </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
