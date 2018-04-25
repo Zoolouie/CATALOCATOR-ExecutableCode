@@ -1,0 +1,48 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+
+<% if (messages.error) { %>
+	<p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+	<p style="color:green"><%- messages.success %></p>
+<% } %>
+
+<form action="/store/add" method="post" name="form1">
+	<table width="25%" border="0">
+		<tr> 
+			<td>Student ID</td>
+			<td><input type="number" name="studi" id="name" value="<%= studi %>" /></td>
+		</tr>
+		<tr> 
+			<td>First Name</td>
+			<td><input type="text" name="firstn" id="name" value="<%= firstn %>" /></td>
+		</tr>
+		<tr> 
+			<td>Last Name</td>
+			<td><input type="text" name="lastn" value="<%= lastn %>" /></td>
+		</tr>
+		<tr> 
+			<td>Email</td>
+			<td><input type="text" name="email" value="<%= email %>" /></td>
+		</tr>
+		<tr> 
+			<td>Password</td>
+			<td><input type="password" name="pass" value="<%= pass %>" /></td>
+		</tr>
+		<tr> 
+			<td></td>
+			<td><input type="submit" name="Submit" value="Add" /></td>
+		</tr>
+
+		</tr>
+	</table>
+</form>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
