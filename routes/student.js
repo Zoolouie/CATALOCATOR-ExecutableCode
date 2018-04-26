@@ -54,7 +54,7 @@ app.get('/', function(req, res, next) {
 app.get('/main_view', function(req, res, next) {
     req.getConnection(function(error, conn) {
         let results = [];
-        const sqlQuery = "select * from studentschedule, class where studentID = '" + userEmail + "' and studentschedule.classid=class.classid";
+        const sqlQuery = "select * from studentschedule, class where studentID = '" + userStudentID + "' and studentschedule.classid=class.classid";
         // Query to get all the entries.
         // conn object which will execute and return results
 
@@ -284,10 +284,10 @@ app.post('/login', function(req, res, next) {
                         req.flash('success', 'You are in the database!')
                         userEmail = item.email;
                         userStudentID = result.rows[0].studentid;      
-                        res.render('student/main_view', {
+                        res.render('student/home', {
                             title: '',
-                            pass: '',
-                            data: ''
+                            email:userEmail,
+                            studentid: userStudentID
                         })
                     }
                 })
@@ -345,6 +345,16 @@ app.post('/selection', function(req, res) {
                     email: ''
                 })
 })
+
+app.get('/home', function(req, res, next) {
+    // render to views/store/selection.ejs
+    res.render('student/home', {
+        title: '',
+        email:userEmail,
+        studentid: UserStudentID
+    })
+})
+
   
 
 
