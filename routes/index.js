@@ -7,12 +7,6 @@ app.get('/', function(req, res) {
     // Title is the custom title which you pass to be added in the header layout
 });
 
-app.get('/login', function(req, res) {
-    // render to views/student/login.ejs template file
-    res.render('./student/login', {})
-    // Title is the custom title which you pass to be added in the header layout
-});
-
 /** 
  * We assign app object to module.exports
  * 
