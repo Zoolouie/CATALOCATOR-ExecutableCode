@@ -4,6 +4,7 @@ var isEmail = require('email-validator')
 
 //stored global variables
 var userEmail = "aaa"
+var userStudentID = -1
 
 const { Pool, Client } = require('pg')
 // const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
@@ -190,7 +191,8 @@ app.get('/main_view', function(req, res, next) {
     // render to views/store/selection.ejs
     res.render('student/main_view', {
         title: '',
-        email:userEmail
+        email:userEmail,
+        studentid:userStudentID
     })
 })
 
@@ -246,10 +248,20 @@ app.post('/login', function(req, res, next) {
                        else {
                         console.log(result.rows.length)
                         req.flash('success', 'You are in the database!')
+                        
+                        //store user information in global variable for future queries
+                        //email:
                         userEmail = item.email;
+                        //studentID:
+                        client.query("SELECT studentid FROM student WHERE email = '" + item.email + "';", function(err, result) {
+							userStudentID = result[0].studentid
+                        })
+                        
+                        
                         res.render('student/main_view', {
                             title: '',
                             email: userEmail,
+                            studentid : userStudentID,
                             pass: '',
                         })
                     }
