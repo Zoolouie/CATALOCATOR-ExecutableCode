@@ -252,6 +252,15 @@ app.post('/login', function(req, res, next) {
     }
 })
 
+//used to parse selection page stuff, still needs a lot of work like updating sql query
+var bodyParser = require('body-parser'); 
+app.use(bodyParser.json()); // to support JSON bodies
+app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
+
+app.post('/selection', function(req, res) {
+  res.send(req.body.optradio);
+});
+
 
 // // EDIT ITEM POST ACTION - Update the item, actual update happens here
 // app.put('/edit/(:id)', function(req, res, next) {
