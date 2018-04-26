@@ -1,7 +1,8 @@
+
 <!--
 including header content which is common for all pages
 -->
-<%- include ../layouts/header.ejs %>	
+<%- include ../layouts/header.ejs %>  
 
 <!doctype html>
 <html lang="en">
@@ -16,10 +17,6 @@ including header content which is common for all pages
 
    </head>
   <body>
-      <div id="banner">
-          <div id="banner-content">
-          </div>
-      </div>
 
       <h1 style="padding-left: 50px; padding-top: 60px">TA/CA Locator</h1>
 
@@ -29,32 +26,75 @@ including header content which is common for all pages
           </div>
 
           <div class="row" style="padding-top: 20px">
-              <div class="col-md-4 col-md">
-                  <form action="/student/selection/" method="post">
-                      <div class="form-check">
-                          <label>
-                              <input type="checkbox" name="options[]" value = "1200"> <span class="label-text">CSCI 1200 - Muzny - The Art of Computational Thinking1</span>
-                          </label>
+                  <div class="col-md-4 col-md">
+                    <form role="form" id="createAccountForm" action="selection" method="POST">
+                      <div class="form-group">
+                         <input type="checkbox" name="optradio" value="1200">CSCI 1200</label>
                       </div>
-                      <div class="form-check">
-                          <label>
-                              <input type="checkbox" name="options[]" value = "1300"> <span class="label-text">CSCI 1300 - Fleming/Gupta - CS1 Starting Computing</span>
-                          </label>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="1300">CSCI 1300</label>
                       </div>
-                      <div class="form-check">
-                          <label>
-                              <input type="checkbox" name="options[] value = "1320"> <span class="label-text">CSCI 1320 - Zagrodzki - Computer Science I: Engineering Applications</span>
-                          </label>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="1400">CSCI 1400</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="1500">CSCI 1500</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="1600">CSCI 1600</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="1700">CSCI 1700</label>
+                      </div>
+                  </div>
 
-                  </form>
-              </div>
+                  <div class="col-md-4 col-md">
+                    
+                      <div class="form-group">
+                         <input type="checkbox" name="optradio" value="2200">CSCI 2200</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="2300">CSCI 2300</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="2400">CSCI 2400</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="2500">CSCI 2500</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="2600">CSCI 2600</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="2700">CSCI 2700</label>
+                      </div>
+                  </div>
 
-          </div>
-          <div class="rowBottom">
-              <div class="checkbox">
-              </div>
-              <a href="/" class="btn btn-lg btn-dark btn-block" role="button">Continue</a>
-          </div>
+                  <div class="col-md-4 col-md">
+                    
+                      <div class="form-group">
+                         <input type="checkbox" name="optradio" value="3200">CSCI 3200</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="3300">CSCI 3300</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="3400">CSCI 3400</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="3500">CSCI 3500</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="3600">CSCI 3600</label>
+                      </div>
+                      <div class="form-group">
+                          <input type="checkbox" name="optradio" value="3700">CSCI 3700</label>
+                      </div>
+                  </div>
+                     <td><input type="submit" class="btn btn-lg btn-dark btn-block" name="Submit" value="Sign Up" /></td>
+              </form>   
       </div>
   </body>
 </html>
+
+
