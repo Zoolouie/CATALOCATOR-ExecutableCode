@@ -27,9 +27,6 @@ app.get('/', function(req, res, next) {
         //   results.push(row);
         // });
         client.query(sqlQuery, function(err, rows, fields) {
-            console.log("MehTest")
-            console.log(JSON.stringify(rows.rows))
-
             if (err) {
                 // Display error message in case an error
                 req.flash('error', err)
@@ -169,67 +166,91 @@ app.get('/selection', function(req, res, next) {
     // render to views/store/selection.ejs
     res.render('student/selection', {
         title: '',
-        studi: '',
-        firstn: '',
-        lastn: '',
-        email: '',
-        pass: ''
     })
 })
+
+
 
 
 app.get('/login', function(req, res, next) {
-    // render to views/store/selection.ejs
+    // render to views/store/register.ejs
     res.render('student/login', {
         title: '',
-        studi: '',
-        firstn: '',
-        lastn: '',
         email: '',
         pass: ''
     })
 })
 
+app.post('/login', function(req, res, next) {
+    req.assert('email', 'Email is required').notEmpty()
+    //Validate sname
+    req.assert('pass', 'Password is required').notEmpty()
+    //Validate qty
 
-
-// // SHOW EDIT ITEM FORM - Display form for update
-// app.get('/edit/(:id)', function(req, res, next) {
-//     /*
-//     TODO : Update operation is similar to add operation.
-//     Fill out the appropriate code below
-//     Hints :
-//     * req.params.id will give you the id which is passed in
-//     /edit/(:id).Use
-//     that in SQL update query and any other place where you need
-//     id
-//     * You are only displaying an item here for the customer.
-//     * The actual update happens in the post action below this
-//     module
-//     */
-//     req.getConnection(function(error, conn) {
-//         conn.query('SELECT * FROM store where id = ?', req.params.id, function(err, rows, fields) {
-//             // if item not found
-//             if (rows.length <= 0) {
-//                 req.flash('error', 'Item not found with id' + rows[0].id)
-//                 res.redirect('/store')
-//             } else { // if item found
-//                 // render to views/store/edit.ejs template file
-//                 res.render('../views/store/edit.ejs', {
-//                     title: 'Edit Item',
-//                     /* Place the code for sending values */
-//                     /* Hint : rows[0] gets the entire tuple
-//                     from database.
-//                     Get the right values from rows[0]
-//                     */
-//                     id: rows[0].id,
-//                     qty: rows[0].qty,
-//                     price: rows[0].price /*price*/ ,
-//                     sname: rows[0].sname /*Item name*/
-//                 })
-//             }
-//         })
-//     })
-// })
+    var errors = req.validationErrors()
+    if (!errors) {
+        //No errors were found. Passed Validation!
+        var item = {
+            pass: req.sanitize('pass').escape().trim(),
+            email: req.sanitize('email').escape().trim()
+        }
+        req.getConnection(function(error, conn) {
+            /* Below we are doing a template replacement. The ?
+            is replaced by entire item object*/
+            /* This is the way which is followed to substitute
+            values for SET*/
+            client.query("SELECT * FROM student WHERE email = '" + item.email + "' and Passwrd = '" + item.pass + "'",
+                
+                function(err, result) {
+                    if (err) {
+                        req.flash('error', err)
+                        // render to views/store/register.ejs
+                        res.render('student/login', {
+                            title: '',
+                            pass: '',
+                            email: ''
+                        })
+                    }
+                    if (0 === result.rows.length)
+                    {
+                        req.flash('error', 'You are not in the database')
+                        res.render('student/login',{
+                            title: '',
+                            pass: '',
+                            email: ''
+                        })
+                    }
+                       else {
+                        console.log(result.rows.length)
+                        req.flash('success', 'You are in the database!')
+                        // render to views/store/register.ejs
+                        res.render('student/login', {
+                            title: '',
+                            email: '',
+                            pass: '',
+                        })
+                    }
+                })
+        })
+    } else {
+        //Display errors to user
+        var error_msg = ''
+        errors.forEach(function(error) {
+            error_msg += error.msg + '<br>'
+        })
+        req.flash('error', error_msg)
+        /**
+         * Using req.body.sname
+         * because req.param('sname') is deprecated
+         */
+        // Sending back the entered values for user to verify
+        res.render('student/login', {
+            title: '',
+            email: req.body.email,
+            pass: req.body.pass
+        })
+    }
+})
 
 
 // // EDIT ITEM POST ACTION - Update the item, actual update happens here
