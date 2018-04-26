@@ -82,10 +82,6 @@ app.get('/main_view', function(req, res, next) {
     })
 })
 
-app.post('/register', function(req, res, next){
-
-})
-
 // app.get('/', function(req, res, next) {
 //     req.getConnection(function(error, conn) {
 //         var sqlQuery = "SELECT * FROM store";
@@ -327,9 +323,11 @@ app.post('/selection', function(req, res) {
   
   for (var i = 0; i < classes.length; ++i) {
     console.log('value at index [' + i + '] is: [' + classes[i] + ']');
+    var constring = "('" + userStudentID + "', '" +  classes[i] + "');";
     //client.query("INSERT INTO student (Passwrd) VALUES " + classes[i])
     //client.query("INSERT INTO student ("StudentID", "LastName", "FirstName", "Email") VALUES" + classes[i])
-    client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES (" + (17+i) + ", 'LastName', 'FirstName', 'Email', " + classes[i]+");",
+    //client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES (" + (17+i) + ", 'LastName', 'FirstName', 'Email', " + classes[i]+");",
+    client.query("Insert INTO StudentSchedule (StudentID, ClassID) VALUES " + constring,
            function(err, result) {
                     if (err) {
                         req.flash('error', err)
@@ -342,7 +340,6 @@ app.post('/selection', function(req, res) {
     res.render('student/main_view', {
                     title: 'Student listing',
                     data: '',
-                    email: ''
                 })
 })
 
