@@ -1,0 +1,8 @@
+To sign in to the tables: 
+
+ psql -h ec2-54-221-192-231.compute-1.amazonaws.com -U oxajqwvmxwcygq d30ja9oeokuudf
+
+
+PASSWORD: 88649658013b5e0cbdf162b20cc5c46160b147eb6837d4bcc36a79b3fe107cbd
+
+To run your queries: \i [FILENAME]
