@@ -1,7 +1,5 @@
-﻿<!--
-including header content which is common for all pages
--->
-<%- include ../layouts/header.ejs %>  
+﻿<%- include ../layouts/header.ejs %>  
+
 
 <% if (messages.error) { %>
   <p style="color:red"><%- messages.error %></p>
@@ -72,3 +70,6 @@ including header content which is common for all pages
     </div>
   </body>
 </html>
+
+
+<%- include ../layouts/footer.ejs %>

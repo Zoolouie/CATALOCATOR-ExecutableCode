@@ -2,6 +2,9 @@ var express = require('express')
 var app = express()
 var isEmail = require('email-validator')
 
+//stored global variables
+var userEmail = "aaa"
+
 const { Pool, Client } = require('pg')
 // const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
 
@@ -183,7 +186,13 @@ app.get('/selection', function(req, res, next) {
     })
 })
 
-
+app.get('/main_view', function(req, res, next) {
+    // render to views/store/selection.ejs
+    res.render('student/main_view', {
+        title: '',
+        email:userEmail
+    })
+})
 
 
 app.get('/login', function(req, res, next) {
@@ -237,10 +246,10 @@ app.post('/login', function(req, res, next) {
                        else {
                         console.log(result.rows.length)
                         req.flash('success', 'You are in the database!')
-                        // render to views/store/register.ejs
-                        res.render('student/login', {
+                        userEmail = item.email;
+                        res.render('student/main_view', {
                             title: '',
-                            email: '',
+                            email: userEmail,
                             pass: '',
                         })
                     }

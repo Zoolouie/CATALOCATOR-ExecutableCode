@@ -2,8 +2,11 @@ var express = require('express')
 var app = express()
  
 app.get('/', function(req, res) {
-    // render to views/index.ejs template file
-    res.render('index', {title: 'TA-CA LOCATOR - BEAR BONES'})
+    // render to students/login.ejs template file
+    res.render('./student/login', {
+		title: '',
+		email: '',
+		pass: ''})
     // Title is the custom title which you pass to be added in the header layout
 });
 
