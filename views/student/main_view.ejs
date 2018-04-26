@@ -1,12 +1,45 @@
-<%- include ../layouts/logged_in_header.ejs %>  
+<%- include ../layouts/header.ejs %>
 
-<html>
-<body>
+<% if (messages.error) { %>
+	<p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+	<p style="color:green"><%- messages.success %></p>
+<% } %>	
+
+<script type="text/javascript">
+var err = <%-JSON.stringify(messages)%>
+console.log(err)
+</script>
 
 This will be the main view people see with a calendar, current classes, TA schedules, etc.
 
-<h1><%= email %></h1>
+<table width='60%' border=0>
 
-</body>
-</html>
+	<tr style='text-align:left; background-color:#CCC'>
+		<th>Name</th>
+		<th>ClassID</th>
+		
+
+	</tr>
+
+	<% if (data) { %>
+	<% data.forEach(function(item){ %>
+		<tr>
+			<td><%= item.studentid %></td>
+			<td><%= item.classid %></td>
+			
+			<td>
+	
+</td>
+
+		</tr>
+	<% }) %>
+	<% } %>
+
+</table>
+
+
 <%- include ../layouts/footer.ejs %>
+

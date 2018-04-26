@@ -4,6 +4,7 @@ var isEmail = require('email-validator')
 
 //stored global variables
 var userEmail = "aaa"
+var userStudentID = -1;
 
 const { Pool, Client } = require('pg')
 // const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
@@ -47,6 +48,42 @@ app.get('/', function(req, res, next) {
             }
         })
     })
+})
+
+
+app.get('/main_view', function(req, res, next) {
+    req.getConnection(function(error, conn) {
+        let results = [];
+        const sqlQuery = "select * from studentschedule, class where studentID = '" + userEmail + "' and studentschedule.classid=class.classid";
+        // Query to get all the entries.
+        // conn object which will execute and return results
+
+        // sqlQuery.on('row', (row) => {
+        //   results.push(row);
+        // });
+        client.query(sqlQuery, function(err, rows, result) {
+            if (err) {
+                // Display error message in case an error
+                req.flash('error', err)
+                res.render('student/main_view', {
+                    title: 'Student listing',
+                    data: ''
+                })
+            } else {
+                // render to views/store/list.ejs template file
+                console.log(rows.rows)
+                res.render('student/main_view', {
+
+                    title: 'Login',
+                    data: rows.rows
+                })
+            }
+        })
+    })
+})
+
+app.post('/register', function(req, res, next){
+
 })
 
 // app.get('/', function(req, res, next) {
@@ -244,13 +281,13 @@ app.post('/login', function(req, res, next) {
                         })
                     }
                        else {
-                        console.log(result.rows.length)
                         req.flash('success', 'You are in the database!')
                         userEmail = item.email;
+                        userStudentID = result.rows[0].studentid;      
                         res.render('student/main_view', {
                             title: '',
-                            email: userEmail,
                             pass: '',
+                            data: ''
                         })
                     }
                 })
@@ -281,8 +318,37 @@ app.use(bodyParser.json()); // to support JSON bodies
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 
 app.post('/selection', function(req, res) {
-  res.send(req.body.optradio);
-});
+  //res.send(req.body.optradio);
+  console.log(req.body);
+  var classes = req.body.optradio;
+  
+  console.log(classes);
+  
+  
+  for (var i = 0; i < classes.length; ++i) {
+    console.log('value at index [' + i + '] is: [' + classes[i] + ']');
+    //client.query("INSERT INTO student (Passwrd) VALUES " + classes[i])
+    //client.query("INSERT INTO student ("StudentID", "LastName", "FirstName", "Email") VALUES" + classes[i])
+    client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES (" + (17+i) + ", 'LastName', 'FirstName', 'Email', " + classes[i]+");",
+           function(err, result) {
+                    if (err) {
+                        req.flash('error', err)
+
+                        // render to views/store/register.ejs
+                    }
+            });
+    }
+
+    res.render('student/main_view', {
+                    title: 'Student listing',
+                    data: '',
+                    email: ''
+                })
+})
+  
+
+
+ 
 
 
 // // EDIT ITEM POST ACTION - Update the item, actual update happens here
