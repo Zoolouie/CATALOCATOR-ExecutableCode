@@ -111,51 +111,85 @@ app.post('/register', function(req, res, next) {
             pass: req.sanitize('pass').escape().trim(),
             email: req.sanitize('email').escape().trim()
         }
-	if(isEmail.validate(item.email) == true){
-		req.getConnection(function(error, conn) {
-		    /* Below we are doing a template replacement. The ?
-		    is replaced by entire item object*/
-		    /* This is the way which is followed to substitute
-		    values for SET*/
-		    var values = '(' + item.studi + ',' + "'" + item.lastn + "'" + ',' + "'" + item.firstn + "'" + ',' + "'" + item.email + "'" + ',' + "'" + item.pass + "'" + ')'; 
-		    client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES " + values,
-		        function(err, result) {
-		            if (err) {
-		                req.flash('error', err)
-		                // render to views/store/register.ejs
-		                res.render('student/register', {
-		                    title: '',
-		                    studi: item.studi,
-		                    lastn: item.lastn,
-		                    firstn: item.firstn,
-		                    pass: item.pass,
-		                    email: item.email
-		                })
-		            } else {
-		                req.flash('success', 'Data added successfully!')
-		                // render to views/store/register.ejs
-		                res.render('student/register', {
-		                    title: '',
-		                    studi: '',
-		                    lastn: '',
-		                    firstn: '',
-		                    email: '',
-		                    pass: '',
-		                })
-		            }
-		        })
-		})
-	//If email is not the correct format it will show error message and refresh page
-        }else{
-            req.flash('error', 'Invalid email')
-            res.render('student/register', {
-                title: '',
-                studi: '',
-                lastn: '',
-                firstn: '',
-                email: '',
-                pass: '',
-            })
+    	if(isEmail.validate(item.email) == true){
+
+    		req.getConnection(function(error, conn) {
+                //Want to see if the email entereed is already in data base
+                client.query("SELECT * FROM student WHERE email = '" + item.email + "'",
+                //If query fails
+                function(err, result) {
+                    if (err) {
+                        req.flash('error', err)
+                        // render to views/store/register.ejs
+                        res.render('student/register', {
+                                title: '',
+                                studi: item.studi,
+                                lastn: item.lastn,
+                                firstn: item.firstn,
+                                pass: item.pass,
+                                email: item.email
+                        })
+                    }
+                    if (0 === result.rows.length){
+                        req.flash('success', 'Nice')
+                        /* Below we are doing a template replacement. The ?
+                        is replaced by entire item object*/
+                        /* This is the way which is followed to substitute
+                        values for SET*/
+                        var values = '(' + item.studi + ',' + "'" + item.lastn + "'" + ',' + "'" + item.firstn + "'" + ',' + "'" + item.email + "'" + ',' + "'" + item.pass + "'" + ')'; 
+                        client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES " + values,
+                            function(err, result) {
+                                if (err) {
+                                    req.flash('error', err)
+                                    // render to views/store/register.ejs
+                                    res.render('student/register', {
+                                        title: '',
+                                        studi: item.studi,
+                                        lastn: item.lastn,
+                                        firstn: item.firstn,
+                                        pass: item.pass,
+                                        email: item.email
+                                    })
+                                } else {
+                                    req.flash('success', 'Data added successfully!')
+                                    // render to views/store/register.ejs
+                                    res.render('student/register', {
+                                        title: '',
+                                        studi: '',
+                                        lastn: '',
+                                        firstn: '',
+                                        email: '',
+                                        pass: '',
+                                    })
+                                }
+                            }
+                        )
+                        
+                    }else{
+                        req.flash('error', 'Email has already been registered')
+                        res.render('student/register', {
+                                    title: '',
+                                    studi: '',
+                                    lastn: '',
+                                    firstn: '',
+                                    email: '',
+                                    pass: '',
+                        })
+                    }
+                })
+        		    
+    		})
+    	   //If email is not the correct format it will show error message and refresh page
+            }else{
+                req.flash('error', 'Invalid email')
+                res.render('student/register', {
+                    title: '',
+                    studi: '',
+                    lastn: '',
+                    firstn: '',
+                    email: '',
+                    pass: '',
+                })
         }
     } else {
         //Display errors to user
