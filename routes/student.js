@@ -58,7 +58,7 @@ client.connect();
 	app.get('/main_view', function(req, res, next) {
 		req.getConnection(function(error, conn) {
 			let results = [];
-			const sqlQuery = "select * from studentschedule, class where studentID = '" + userStudentID + "' and studentschedule.classid=class.classid";
+			const sqlQuery = "select * from studentschedule, class, teacher where studentID = '" + userStudentID + "' and studentschedule.classid=class.classid and class.teacherid = teacher.teacherid";
 			// Query to get all the entries.
 			// conn object which will execute and return results
 
@@ -77,8 +77,7 @@ client.connect();
 					// render to views/store/list.ejs template file
 					console.log(rows.rows)
 					res.render('student/main_view', {
-
-						title: 'My Schedule',
+						title: '',
 						data: rows.rows
 					})
 				}
