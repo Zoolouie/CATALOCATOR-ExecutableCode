@@ -226,16 +226,6 @@ client.connect();
 		}
 	})
 
-	/**
-	app.get('/main_view', function(req, res, next) {
-		// render to views/store/selection.ejs
-		res.render('student/main_view', {
-			title: '',
-			email:userEmail
-		})
-	})
-	**/
-
 	app.get('/login', function(req, res, next) {
 		res.render('student/login', {
 			title: '',
@@ -345,17 +335,6 @@ client.connect();
 						data: '',
 					})
 	})
-
-	/**
-	app.get('/home', function(req, res, next) {
-		// render to views/store/selection.ejs
-		res.render('student/home', {
-			title: '',
-			email:userEmail,
-			studentid: UserStudentID
-		})
-	})
-	**/
 
 
 /* WORKS IN PROGRESS */
