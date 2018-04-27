@@ -1,12 +1,12 @@
-<%- include ../layouts/header.ejs %>
+<%- include ../layouts/logged_in_header.ejs %>
 
-<% if (messages.error) { %>
-	<p style="color:red"><%- messages.error %></p>
-<% } %>
+	<% if (messages.error) { %>
+		<p style="color:red"><%- messages.error %></p>
+	<% } %>
 
-<% if (messages.success) { %>
-	<p style="color:green"><%- messages.success %></p>
-<% } %>	
+	<% if (messages.success) { %>
+		<p style="color:green"><%- messages.success %></p>
+	<% } %>	
 
 <script type="text/javascript">
 var err = <%-JSON.stringify(messages)%>
@@ -20,8 +20,6 @@ This will be the main view people see with a calendar, current classes, TA sched
 	<tr style='text-align:left; background-color:#CCC'>
 		<th>Name</th>
 		<th>ClassID</th>
-		
-
 	</tr>
 
 	<% if (data) { %>
@@ -29,10 +27,9 @@ This will be the main view people see with a calendar, current classes, TA sched
 		<tr>
 			<td><%= item.studentid %></td>
 			<td><%= item.classid %></td>
-			
 			<td>
 	
-</td>
+		</td>
 
 		</tr>
 	<% }) %>
@@ -42,4 +39,3 @@ This will be the main view people see with a calendar, current classes, TA sched
 
 
 <%- include ../layouts/footer.ejs %>
-
