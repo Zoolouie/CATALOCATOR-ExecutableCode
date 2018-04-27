@@ -58,7 +58,18 @@ client.connect();
 	app.get('/main_view', function(req, res, next) {
 		req.getConnection(function(error, conn) {
 			let results = [];
-			const sqlQuery = "select class.classid, class.teacherid, class.dayofweek, class.fromtime, class.totime, class.room, class.building, teacher.teacherid, teacher.firstname, teacher.lastname, studentschedule.studentid, studentschedule.classid, taca.assistantid, taca.lastname as talastname, taca.firstname as tafirstname, taca.email, tacaschedule.scheduleid, tacaschedule.assistantid, tacaschedule.classid, tacaschedule.dayofweek as tadayofweek, tacaschedule.fromtime as tafromtime, tacaschedule.totime as tatotime, tacaschedule.room as taroom, tacaschedule.building as tabuilding from studentschedule, class, teacher, taca, tacaschedule where studentID = '" + userStudentID + "' and studentschedule.classid=class.classid and class.teacherid = teacher.teacherid and class.classid = tacaschedule.classid and tacaschedule.assistantid = taca.assistantid";
+			const sqlQuery = "SELECT class.classid, class.teacherid, class.dayofweek, class.fromtime, class.totime, class.room, class.building, \
+								teacher.teacherid, teacher.firstname, teacher.lastname, \
+								studentschedule.studentid, studentschedule.classid, \
+								taca.assistantid, taca.lastname as talastname, taca.firstname as tafirstname, taca.email, \
+								tacaschedule.scheduleid, tacaschedule.assistantid, tacaschedule.classid, tacaschedule.dayofweek as tadayofweek, \
+								tacaschedule.fromtime as tafromtime, tacaschedule.totime as tatotime, tacaschedule.room as taroom, tacaschedule.building as tabuilding \
+								FROM studentschedule, class, teacher, taca, tacaschedule \
+								WHERE studentID = '" + userStudentID + "' \
+								AND studentschedule.classid=class.classid \
+								AND class.teacherid = teacher.teacherid \
+								AND class.classid = tacaschedule.classid \
+								AND tacaschedule.assistantid = taca.assistantid";
 			// Query to get all the entries.
 			// conn object which will execute and return results
 
