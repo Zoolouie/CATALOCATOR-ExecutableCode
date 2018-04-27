@@ -1,3 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+</head>
+<body>
+
 <%- include ../layouts/logged_in_header.ejs %>
 
 	<% if (messages.error) { %>
@@ -18,7 +29,7 @@ This will be the main view people see with a calendar, current classes, TA sched
 <table width='60%' border=0>
 
 	<tr style='text-align:left; background-color:#CCC'>
-		<th>Name</th>
+		<th>StudentID</th>
 		<th>ClassID</th>
 	</tr>
 
@@ -36,6 +47,9 @@ This will be the main view people see with a calendar, current classes, TA sched
 	<% } %>
 
 </table>
+
+ </body>
+</html>
 
 
 <%- include ../layouts/footer.ejs %>

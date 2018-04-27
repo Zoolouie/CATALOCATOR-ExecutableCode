@@ -78,7 +78,7 @@ client.connect();
 					console.log(rows.rows)
 					res.render('student/main_view', {
 
-						title: 'Login',
+						title: 'My Schedule',
 						data: rows.rows
 					})
 				}
