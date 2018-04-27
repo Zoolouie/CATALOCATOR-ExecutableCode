@@ -15,33 +15,63 @@ console.log(err)
 
 <p>This will be the main view people see with a calendar, current classes, TA schedules, etc.</p>
 
-
-<table width='60%' border=0->
-	<caption><tr style='text-align:left';><th>Registered classes</th></caption>
-	<tr style='text-align:left; background-color:#CCC'>
-		<th>Class</th>
-		<th>Teacher</th>
-		<th>Days</th>
-		<th>Time</th>
-		<th>Location</th>
-	</tr>
-
-	<% if (data) { %>
-	<% data.forEach(function(item){ %>
-		<tr>
-			<td>CSCI <%= item.classid %></td>
-			<td><%= item.firstname %><%= item.lastname %></td>
-			<td><%= item.dayofweek %></td>
-			<td><%= item.fromtime %> - <%= item.totime %></td>
-			<td>Building: <%= item.building %> Room: <%= item.room %></td>
-	
-		</td>
-
+<!-- registered classes table -->
+	<table width='60%' border=0->
+		<caption><tr style='text-align:left';><th>Registered classes</th></caption>
+		<tr style='text-align:left; background-color:#CCC'>
+			<th>Class</th>
+			<th>Teacher</th>
+			<th>Days</th>
+			<th>Time</th>
+			<th>Location</th>
 		</tr>
-	<% }) %>
-	<% } %>
 
-</table>
+		<% if (data) { %>
+		<% data.forEach(function(item){ %>
+			<tr>
+				<td>CSCI <%= item.classid %></td>
+				<td><%= item.firstname %><%= item.lastname %></td>
+				<td><%= item.dayofweek %></td>
+				<td><%= item.fromtime %> - <%= item.totime %></td>
+				<td>Building: <%= item.building %> Room: <%= item.room %></td>
+		
+			</td>
+
+			</tr>
+		<% }) %>
+		<% } %>
+
+	</table>
+
+<!-- class ta schedule -->
+	<table width='60%' border=0->
+		<caption><tr style='text-align:left';><th>Office Hours</th></caption>
+		<tr style='text-align:left; background-color:#CCC'>
+			<th>Class</th>
+			<th>Class TA</th>
+			<th>Days</th>
+			<th>Time</th>
+			<th>Location</th>
+		</tr>
+
+		<% if (data) { %>
+		<% data.forEach(function(item){ %>
+			<tr>
+				<td>CSCI <%= item.classid %></td>
+				<td><%= item.tafirstname %><%= item.talastname %></td>
+				<td><%= item.tadayofweek %></td>
+				<td><%= item.tafromtime %> - <%= item.tatotime %></td>
+				<td>Building: <%= item.tabuilding %> Room: <%= item.taroom %></td>
+		
+			</td>
+
+			</tr>
+		<% }) %>
+		<% } %>
+
+	</table>
+
+
 
 
 <%- include ../layouts/footer.ejs %>
