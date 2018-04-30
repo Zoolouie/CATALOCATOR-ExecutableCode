@@ -1,0 +1,88 @@
+/*Author: Thadeus Labuszewski
+    Co-Author: John Osborne
+
+CSS for both login and signup pages. Will be updated if people think that the login/signup pages are too boring.
+
+*/
+
+body {
+    
+    background-color: silver;
+}
+
+.row{
+    padding-top: 50px;
+}
+
+.panel-heading{
+  text-align: center;
+}
+
+.col-md-6{
+  margin: auto;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: goldenrod;
+}
+
+.btn{
+    color: darkgoldenrod;
+}
+
+.col-md-4{
+    border-left-style: solid;
+    border-width: 10px;
+    border-color: darkgoldenrod;
+    margin-top: 70px;
+}
+
+.rowBottom{
+    padding-top: 50px;
+}
+
+.form-check:hover{
+    background-color: goldenrod;
+}
+
+div#banner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    padding: 50px;
+}
+
+.container2{
+  margin: auto;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-width: 5px;
+  border-color: goldenrod;
+}
+
+.text{
+  padding-left: 10px;
+}
+
+p{
+  font-size: 16px;
+  color: #191919;
+}
+
+ul{
+  font-size: 16px;
+  color: #191919;
+}
+
+
+
+
+h1 {
+    font-weight: 900;
+}
+
+.paddingt{
+  padding-top: 70px;
+}

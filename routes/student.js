@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express()
 var isEmail = require('email-validator')
+var path = require('path')
 
 //stored global variables
 var userEmail = "aaa"

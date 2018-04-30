@@ -1,6 +1,8 @@
 var express = require('express')
 var app = express()
- 
+//for css:
+app.use('/css', express.static(__dirname + '/assets'));
+
 app.get('/', function(req, res) {
     // render to students/login.ejs template file
     res.render('./student/login', {

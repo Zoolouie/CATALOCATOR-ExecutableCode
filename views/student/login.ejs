@@ -1,7 +1,4 @@
-﻿<%- include ../layouts/header.ejs %>  
-
-
-<% if (messages.error) { %>
+﻿<% if (messages.error) { %>
   <p style="color:red"><%- messages.error %></p>
 <% } %>
 
@@ -17,7 +14,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+	<%- include ../layouts/header.ejs %>
+	  
    </head>
   <body>
   <div id = "paddingt" >
