@@ -1,6 +1,8 @@
 /*Author: Thadeus Labuszewski
     Co-Author: John Osborne
 
+    stylized by Elsa Velazquez, MEd
+
 CSS for both login and signup pages. Will be updated if people think that the login/signup pages are too boring.
 
 */
@@ -85,4 +87,15 @@ h1 {
 
 .paddingt{
   padding-top: 70px;
+}
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
 }
