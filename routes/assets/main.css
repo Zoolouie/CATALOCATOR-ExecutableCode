@@ -54,6 +54,7 @@ div#banner{
     background-color: black;
     width: 100%;
     padding: 50px;
+    <a href="/">Logout</a>
 }
 
 .container2{
@@ -90,12 +91,57 @@ h1 {
 }
 
 
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: red;
-   color: white;
+footer {
+	background: #333333;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: arial;
+}
+.footerLinks {
    text-align: center;
+}
+.footerLinks ul {
+	padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+.footerLinks li {
+	display: inline;
+}
+.footerLinks a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 13px;
+}
+.copyright {
+    text-align: center;
+}
+
+.copyright p {
+	margin: 0;
+	color: #b3b3b3;
+	font-size: 11px;
+}
+
+
+a:link {
+    color: #D3D3D3;
+}
+
+/* visited link */
+a:visited {
+    color: goldenrod;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
 }
