@@ -1,3 +1,8 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ../layouts/header.ejs %>	
+
 <% if (messages.error) { %>
 	<p style="color:red"><%- messages.error %></p>
 <% } %>
@@ -14,8 +19,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<%- include ../layouts/header.ejs %>
-	
+
    </head>
   <body>
 
@@ -23,7 +27,7 @@
 
       <div id="banner">
 
-<font color="white">HOME</font>
+
       
           <div id="banner-content">
         
@@ -63,7 +67,9 @@
                                   </div>
                                   	<td><input type="submit" class="btn btn-lg btn-dark btn-block" name="Submit" value="Register" /></td>
 
-                                  <p><br>Already have an account? <a href="/student/login">Sign in</a></p>
+                                  <div class ="needspadding">
+                                    <p><br>Already have an account? <a href="/student/login">Sign in</a></p>
+                                  </div>
                                   </form>
 
 

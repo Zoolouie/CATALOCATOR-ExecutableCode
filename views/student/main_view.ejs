@@ -1,4 +1,25 @@
-<%- include ../layouts/logged_in_header.ejs %>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+
+
+  </head>
+ <body>
+
+<div class="navbar">
+      <a href="/student/main_view">My Schedule</a> |
+      <a href="/student/selection">Add Classes</a> |
+      <a href="/">Logout</a>
+</div>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+
 
 	<% if (messages.error) { %>
 		<p style="color:red"><%- messages.error %></p>
@@ -16,6 +37,7 @@ console.log(err)
 <p>This will be the main view people see with a calendar, current classes, TA schedules, etc.</p>
 
 <!-- registered classes table -->
+<div class = "containermain">
 	<table width='60%' border=0->
 		<caption><tr style='text-align:left';><th>Registered classes</th></caption>
 		<tr style='text-align:left; background-color:#CCC'>
@@ -42,6 +64,7 @@ console.log(err)
 		<% } %>
 
 	</table>
+</div>
 
 <!-- class ta schedule -->
 	<table width='60%' border=0->
@@ -73,5 +96,18 @@ console.log(err)
 
 
 
+	 <footer>
+	  <div class="footerLinks">
+	    <ul>
+	      <li><a href="https://github.com/Zoolouie/CATALOCATOR-ExecutableCode/commits/master">Active GitHub     </a>  |</li>
+	        <li><a href="https://github.com/Roman260/SoftwareDevProject">1st GitHub     </a> |</li>
+	        <li><a href="https://trello.com/b/Il8S973j/sprint-one">Trello     </a> |</li>
+	    </ul>
+	    </div>  
 
-<%- include ../layouts/footer.ejs %>
+	  
+	  	<div class="copyright">
+	    <p>&copy; 2018</p>
+	   </div>
+	</footer>
+</html>
