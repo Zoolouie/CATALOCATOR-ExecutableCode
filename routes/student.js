@@ -231,7 +231,7 @@ client.connect();
 			})
 		}
 	})
-
+	//Retrieves login page and sets values to blank
 	app.get('/login', function(req, res, next) {
 		res.render('student/login', {
 			title: '',
