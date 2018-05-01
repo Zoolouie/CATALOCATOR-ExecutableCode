@@ -1,10 +1,10 @@
 {
-  "name": "(crud-mysql)",
+  "name": "a",
   "version": "1.0.0",
   "description": "Lab9 Software Dev",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'no test specified'"
   },
   "keywords": [
     "node",
@@ -30,5 +30,13 @@
   },
   "devDependencies": {
     "pg": "^7.4.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zoolouie/CATALOCATOR-ExecutableCode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zoolouie/CATALOCATOR-ExecutableCode/issues"
+  },
+  "homepage": "https://github.com/Zoolouie/CATALOCATOR-ExecutableCode#readme"
 }
