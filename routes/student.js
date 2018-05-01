@@ -341,10 +341,7 @@ client.connect();
 				});
 		}
 
-		res.render('student/main_view', {
-						title: 'Student listing',
-						data: '',
-					})
+		res.redirect('./main_view')
 	})
 
 
