@@ -173,7 +173,7 @@ client.connect();
 											pass: item.pass,
 											email: item.email
 										})
-									} else {
+									} else {  //Succesfully entered the system! Redirects to main page and sets global variables
 										req.flash('success', 'Data added successfully!')
 										userEmail = item.email
 										userStudentID = item.studi    
@@ -183,14 +183,15 @@ client.connect();
 							)
 							
 						}else{
+							//If email is already registered it denies entry and resets page
 							req.flash('error', 'Email has already been registered')
 							res.render('student/register', {
 										title: '',
-										studi: '',
-										lastn: '',
-										firstn: '',
-										email: '',
+										studi: item.studi,
+										lastn: item.lastn,
+										firstn: item.firstn,
 										pass: '',
+										email: ''
 							})
 						}
 					})
@@ -201,11 +202,11 @@ client.connect();
 					req.flash('error', 'Invalid email')
 					res.render('student/register', {
 						title: '',
-						studi: '',
-						lastn: '',
-						firstn: '',
-						email: '',
+						studi: item.studi,
+						lastn: item.lastn,
+						firstn: item.firstn,
 						pass: '',
+						email: ''
 					})
 			}
 		} else {
