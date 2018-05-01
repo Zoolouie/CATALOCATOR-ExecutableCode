@@ -9,7 +9,7 @@ CSS for both login and signup pages. Will be updated if people think that the lo
 
 body {
     
-    background-color: silver;
+    background-color: #F0F0F0;
 }
 
 .row{
@@ -54,7 +54,6 @@ div#banner{
     background-color: black;
     width: 100%;
     padding: 50px;
-    <a href="/">Logout</a>
 }
 
 .container2{
