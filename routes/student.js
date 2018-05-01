@@ -175,15 +175,9 @@ client.connect();
 										})
 									} else {
 										req.flash('success', 'Data added successfully!')
-										// render to views/store/register.ejs
-										res.render('student/register', {
-											title: '',
-											studi: '',
-											lastn: '',
-											firstn: '',
-											email: '',
-											pass: '',
-										})
+										userEmail = item.email
+										userStudentID = item.studi    
+										res.redirect('./main_view')
 									}
 								}
 							)
