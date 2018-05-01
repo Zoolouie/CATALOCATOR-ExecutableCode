@@ -92,7 +92,7 @@ h1 {
 
 footer {
 	background: #333333;
-    position:absolute;
+    position:fixed;
     bottom: 0;
     left: 0;
     right: 0;
