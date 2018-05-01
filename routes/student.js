@@ -154,7 +154,6 @@ client.connect();
 							})
 						}
 						if (0 === result.rows.length){
-							req.flash('success', 'Nice')
 							/* Below we are doing a template replacement. The ?
 							is replaced by entire item object*/
 							/* This is the way which is followed to substitute
@@ -174,7 +173,6 @@ client.connect();
 											email: item.email
 										})
 									} else {  //Succesfully entered the system! Redirects to main page and sets global variables
-										req.flash('success', 'Data added successfully!')
 										userEmail = item.email
 										userStudentID = item.studi    
 										res.redirect('./main_view')
