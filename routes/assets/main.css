@@ -9,11 +9,11 @@ CSS for both login and signup pages. Will be updated if people think that the lo
 
 body {
     
-    background-color: gray;
+    background-color: #C0C0C0;
 }
 
 .row{
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .panel-heading{
