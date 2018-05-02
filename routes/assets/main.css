@@ -17,7 +17,7 @@ body {
 }
 
 .panel-heading{
-  text-align: center;
+  text-align: left;
 }
 
 .col-md-6{
@@ -116,6 +116,7 @@ footer {
 	color: #FFFFFF;
 	text-decoration: none;
 	font-size: 13px;
+
 }
 .copyright {
     text-align: center;
@@ -140,6 +141,11 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: white;
+          -webkit-stroke-width: 5.3px;
+      -webkit-stroke-color: #FFFFFF;
+      -webkit-fill-color: #FFFFFF;
+      text-shadow: 1px 0px 20px goldenrod;
+
 }
 
 /* selected link */
