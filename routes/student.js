@@ -313,7 +313,11 @@ client.connect();
 	app.post('/selection', function(req, res) {
 	  //res.send(req.body.optradio);
 	  console.log(req.body);
-	  var classes = req.body.optradio;
+	  
+	  var classes = [];
+	  for(var i = 0; i < req.body.optradio.length; i++){
+	    classes.push(req.body.optradio[i])
+	   }
 	  
 	  console.log(classes);
 	  //This is to make sure the user has selected something
@@ -324,24 +328,37 @@ client.connect();
 			title: '',
 		})
 	  }else{
-	  for (var i = 0; i < classes.length; ++i) {
-		console.log('value at index [' + i + '] is: [' + classes[i] + ']');
-		var constring = "('" + userStudentID + "', '" +  classes[i] + "');";
-		//client.query("INSERT INTO student (Passwrd) VALUES " + classes[i])
-		//client.query("INSERT INTO student ("StudentID", "LastName", "FirstName", "Email") VALUES" + classes[i])
-		//client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES (" + (17+i) + ", 'LastName', 'FirstName', 'Email', " + classes[i]+");",
-		client.query("Insert INTO StudentSchedule (StudentID, ClassID) VALUES " + constring,
-			   function(err, result) {
-						if (err) {
-							req.flash('error', err)
+		  if(classes.length == 4 && (classes[0] < 1000)){
+			var constring = "('" + userStudentID + "', '" +  classes[0] + classes[1] + classes[2] + classes[3] +"');";
+			client.query("Insert INTO StudentSchedule (StudentID, ClassID) VALUES " + constring,
+				function(err, result) {
+							if (err) {
+								req.flash('error', err)
 
-							// render to views/store/register.ejs
-						}
-				});
+								// render to views/store/register.ejs
+							}
+					});
+			res.redirect('./main_view') 
+	      }else{
+			  for (var i = 0; i < classes.length; ++i) {
+				console.log('value at index [' + i + '] is: [' + classes[i] + ']');
+				var constring = "('" + userStudentID + "', '" +  classes[i] + "');";
+				//client.query("INSERT INTO student (Passwrd) VALUES " + classes[i])
+				//client.query("INSERT INTO student ("StudentID", "LastName", "FirstName", "Email") VALUES" + classes[i])
+				//client.query("INSERT INTO student (StudentID, LastName, FirstName, Email, Passwrd) VALUES (" + (17+i) + ", 'LastName', 'FirstName', 'Email', " + classes[i]+");",
+				client.query("Insert INTO StudentSchedule (StudentID, ClassID) VALUES " + constring,
+					   function(err, result) {
+								if (err) {
+									req.flash('error', err)
+
+									// render to views/store/register.ejs
+								}
+						});
+				}
+				res.redirect('./main_view')
+			}
+			
 		}
-
-		res.redirect('./main_view')
-	}
 	})
 
 	app.get('/about', function(req, res) {
