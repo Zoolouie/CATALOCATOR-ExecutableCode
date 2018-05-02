@@ -316,8 +316,14 @@ client.connect();
 	  var classes = req.body.optradio;
 	  
 	  console.log(classes);
-	  
-	  
+	  //This is to make sure the user has selected something
+	  if(classes === undefined){
+	  	//User can't see this error message but at least it doesn't yell at them with code
+	  	req.flash('error', 'Must select at least one class to sign up')
+	  	res.render('student/selection', {
+			title: '',
+		})
+	  }else{
 	  for (var i = 0; i < classes.length; ++i) {
 		console.log('value at index [' + i + '] is: [' + classes[i] + ']');
 		var constring = "('" + userStudentID + "', '" +  classes[i] + "');";
@@ -335,6 +341,7 @@ client.connect();
 		}
 
 		res.redirect('./main_view')
+	}
 	})
 
 
