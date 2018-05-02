@@ -159,13 +159,13 @@ body {margin:2;}
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #000000;
   position: fixed;
   top: 0;
   width: 100%;
   text-align: left;
 }
-}
+
 
 .navbar a {
   float: left;
@@ -195,6 +195,7 @@ body {margin:2;}
 
 .needspadding{
   padding-bottom: 50px;
+
 }
 
 .containermain{
@@ -203,4 +204,59 @@ body {margin:2;}
 
 td div{ 
   position: fixed;
+}
+
+
+
+
+
+
+
+header {
+
+  background-color: #000000;
+  text-align: left;
+   background: #000000;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    font-family: arial;
+}
+.headerLinks {
+   text-align: left;
+}
+.headerLinks ul {
+  padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+.headerLinks li {
+  display: inline;
+}
+.headerLinks a {
+  color: #FFFFFF;
+  text-decoraion: none;
+  font-size: 16px;
+
+}
+.header a:hover {
+
+  color: white;
+      -webkit-stroke-width: 5.3px;
+      -webkit-stroke-color: #FFFFFF;
+      -webkit-fill-color: #FFFFFF;
+      text-shadow: 1px 0px 20px goldenrod;
+
+}
+
+.header a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: left;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 17px;
 }

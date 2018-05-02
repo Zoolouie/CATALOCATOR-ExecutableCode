@@ -8,21 +8,33 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%- include ../layouts/logged_in_header.ejs %>  
 
-
-   </head>
-  <body>
-
-  
-<div class="navbar">
-      <a href="/student/main_view">My Schedule</a> |
-      <a href="/student/selection">Add Classes</a> |
-      <a href="/">Logout</a>
-</div>
 <link rel="stylesheet" href="/css/main.css" type="text/css" />
 
+   </head>
+   <div class="navbar">
+<table bgcolor="black" border="0" width="100%" ID="Table2" style="margin: 0px;">
+  <tr>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/student/main_view">My Schedule</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/student/selection">Add Classes</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/student/logout">Logout</a></td>
+  </tr>
+  
+    
+</table><br><br>
+
+   
+</div>
+  <body>
+
+<!--       <div class="container" style="padding-top: 20px">
+          <div class="row"> -->
+
+  
+
+
       <div class="container">
+
           <div class="rowHead">
-              <h1 style="padding-left: 1px; padding-top: 60px">Add Classes</h1>
+              <h1 style="padding-left: 1px; padding-top: 60px"><br>Add Classes</h1>
 
               <h6 style="padding-top: 14px">Before we create your personalized schedule, we need some informaton from you. Please select all classes that you are currently taking. </h6>
           </div>
@@ -108,9 +120,10 @@
     <footer>
     <div class="footerLinks">
       <ul>
-        <li><a href="https://github.com/Zoolouie/CATALOCATOR-ExecutableCode/commits/master"> GitHub  </a>  |</li>
-          <li><a href="https://github.com/Roman260/SoftwareDevProject">Old GitHub     </a> |</li>
-          <li><a href="https://trello.com/b/Il8S973j/sprint-one">Trello     </a> </li>
+        <li><a href="https://github.com/Zoolouie/CATALOCATOR-ExecutableCode/commits/master">Current GitHub     </a>    |</li>
+          <li><a href="https://github.com/Roman260/SoftwareDevProject">Old GitHub     </a>      |</li>
+          <li><a href="https://trello.com/b/Il8S973j/sprint-one">Trello     </a>      |</li>
+          <li><a href="/student/about">About Us     </a> </li>
       </ul>
       </div>  
 
