@@ -344,7 +344,14 @@ client.connect();
 	}
 	})
 
-
+	app.get('/about', function(req, res) {
+		res.render('student/about',{
+			title:'',
+			email:'',
+			pass:''
+		})
+	})
+	
 /* WORKS IN PROGRESS */
 
 /*
