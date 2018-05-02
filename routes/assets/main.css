@@ -9,7 +9,7 @@ CSS for both login and signup pages. Will be updated if people think that the lo
 
 body {
     
-    background-color: #C0C0C0;
+    background-color: #E8E8E8;
 }
 
 .row{
@@ -93,7 +93,7 @@ h1 {
 
 
 footer {
-	background: #333333;
+	background: #181818;
     position:fixed;
     bottom: 0;
     left: 0;
@@ -174,7 +174,7 @@ body {margin:2;}
   text-align: left;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .navbar a:hover {
@@ -259,4 +259,12 @@ header {
   padding: 10px 10px;
   text-decoration: none;
   font-size: 17px;
+}
+
+
+
+#my-div{
+  margin: 0 auto;
+  width: 80%;
+  height: 50%;
 }

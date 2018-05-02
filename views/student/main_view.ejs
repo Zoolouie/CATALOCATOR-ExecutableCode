@@ -49,11 +49,12 @@ var err = <%-JSON.stringify(messages)%>
 console.log(err)
 </script>
 
-<p>This will be the main view people see with a calendar, current classes, TA schedules, etc.</p>
+
 
 <!-- registered classes table -->
 <div class = "containermain">
-	<table width='80%' border=0- cellpadding="10">
+	<div id="my-div">
+	<table width='80%' border=0- cellpadding="5"  align= "center">
 		<caption><tr style='text-align:left';><h4 style = 'margin-left: .5%;'>Registered Classes</h2></caption>
 		<tr style='text-align:left; background-color:#696969'>
 			<th>Class</th>
@@ -65,7 +66,7 @@ console.log(err)
 
 		<% if (data) { %>
 		<% data.forEach(function(item){ %>
-			<tr>
+			<tr >
 				<td>CSCI <%= item.classid %></td>
 				<td><%= item.firstname %><%= item.lastname %></td>
 				<td><%= item.dayofweek %></td>
@@ -79,10 +80,10 @@ console.log(err)
 		<% } %>
 
 	</table>
-</div>
+
 
 <!-- class ta schedule -->
-	<table width='80%' border=0- cellpadding="10">
+	<table width='80%' border="0" cellpadding="5" align= "center" >
 		<caption><tr style='text-align:left';><h4 style = 'margin-left: .5%;'>Office Hours</h4></caption>
 		<tr style='text-align:left; background-color:#696969'>
 			<th>Class</th>
@@ -108,7 +109,8 @@ console.log(err)
 		<% } %>
 
 	</table>
-
+</div>
+</div>
 	<br>
 
 	 <footer>
