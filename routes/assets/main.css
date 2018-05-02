@@ -53,6 +53,8 @@ div#banner{
     left: 0;
     background-color: black;
     width: 100%;
+    text-align: left;
+}
     padding: 50px;
 }
 
@@ -155,21 +157,23 @@ body {margin:2;}
   position: fixed;
   top: 0;
   width: 100%;
+  text-align: left;
+}
 }
 
 .navbar a {
   float: left;
   display: block;
   color: #f2f2f2;
-  text-align: center;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
 .navbar a:hover {
-  background: #ddd;
-  color: black;
+
+  color: white;
 
 }
 
@@ -188,5 +192,5 @@ body {margin:2;}
 }
 
 td div{ 
-  position: relative
+  position: fixed;
 }
