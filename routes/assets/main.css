@@ -12,6 +12,10 @@ body {
     background-color: #E8E8E8;
 }
 
+.form-group:hover {
+  box-shadow: 2px 2px 5px darkgoldenrod;
+}
+
 .row{
     padding-top: 20px;
 }
