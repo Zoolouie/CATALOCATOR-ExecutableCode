@@ -3,7 +3,7 @@ CSCI 3308 Group 107-1 Project
 
 
 
-Project Assignment Hyperlinks:
+Project Assignment Hyperlinks:<br>
 
 Executable Code - https://github.com/Zoolouie/CATALOCATOR-ExecutableCode/blob/master/how-to-run-app-by-Zander.md
 
