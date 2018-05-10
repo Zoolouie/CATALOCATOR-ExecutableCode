@@ -17,3 +17,7 @@ Trello -  https://trello.com/b/Il8S973j/sprint-one
 
 
 Wiki Page - https://github.com/Zoolouie/CATALOCATOR-ExecutableCode/wiki
+
+
+About the App:
+The TA/CA locator makes it easy to find help in the Computer Science department at The University of Colorado Boulder. We match your availability with all of your TA's/CA's schedules so that you will never miss another important office hour.
