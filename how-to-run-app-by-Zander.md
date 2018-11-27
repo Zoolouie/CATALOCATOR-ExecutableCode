@@ -1,7 +1,6 @@
 # CATALOCATOR-ExecutableCode
 
 Hey guys! 
-Working with Prasanna, I managed to convert a lot of Lab 9 into what we need for our own databases.
 
 To give it a shot on your own machines:
 
@@ -45,20 +44,6 @@ edit.ejs:
 
 A file that has yet to be modified / renamed. This is likely where login code will go.
 
-
-What can I do to help?
-The way I see it, here are the main tasks.
-1) Modify the .ejs code to reflect what the front end has created.
-2) Work on the login information. Code as an example can be found in what I've coded for add.ejs and store.js, as well as
-further down in the store.js file. (Specifically, around line 185 - where it has the exception for when nothing is found).
-3) Some of the files need to be renamed so they actually make sense. This involves a little bit of legwork in terms
-of finding all instances of a filename - but is probably not too bad in practice.
-
-
-
 Helpful Tips:
 For some reason postgresql has no support for the '?' formatting. If you want to concatonate, you have to manually enter a
 string as I did above.
-
-If you have any questions about how anything works - reach out to me and I'll try my best to explain. I know this shit
-is beyond complicated so please don't hesitate to ask, I promise not to judge :).
